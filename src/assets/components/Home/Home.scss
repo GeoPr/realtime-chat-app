@@ -1,0 +1,24 @@
+.home {
+  padding: 100px 0px;
+  // .home__container
+  &__container {
+  }
+  // .home__body
+  &__body {
+    min-height: calc(100vh - 200px);
+    display: grid;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    row-gap: 30px;
+  }
+  // .home__title
+  &__title {
+    font-size: 2rem;
+  }
+  // .home__subtitle
+  &__subtitle {
+    max-width: 500px;
+    line-height: 24px;
+  }
+}

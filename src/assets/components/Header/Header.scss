@@ -1,0 +1,33 @@
+.header {
+  background: rebeccapurple;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  // .header__body
+  &__body {
+    padding: 0px 50px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  // .header__nav
+  &__nav {
+  }
+  // .header__list
+  &__list {
+    display: flex;
+    align-items: center;
+    li {
+      &:not(:last-child) {
+        margin: 0px 30px 0px 0px;
+      }
+      a {
+        color: #fff;
+        font-size: 1.7rem;
+        letter-spacing: 3px;
+      }
+    }
+  }
+}

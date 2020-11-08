@@ -1,0 +1,25 @@
+.login {
+  background: #333;
+  // .login__container
+  &__container {
+  }
+  // .login__body
+  &__body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    row-gap: 30px;
+  }
+  // .login__title
+  &__title {
+  }
+  // .login__form
+  &__form {
+  }
+  // .login__input
+  &__input {
+  }
+  // .login__button
+  &__button {
+  }
+}

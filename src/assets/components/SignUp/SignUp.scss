@@ -1,0 +1,22 @@
+.signup {
+  background: #333;
+  // .signup__container
+  &__container {
+  }
+  // .signup__body
+  &__body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    row-gap: 30px;
+  }
+  // .signup__form
+  &__form {
+  }
+  // .signup__input
+  &__input {
+  }
+  // .signup__button
+  &__button {
+  }
+}
