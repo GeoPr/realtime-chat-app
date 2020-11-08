@@ -8,6 +8,7 @@ import { Header } from './Header/Header';
 import { Home } from './Home/Home';
 import { Loader } from './Loader/Loader';
 import { Login } from './Login/Login';
+import { Profile } from './Profile/Profile';
 import { SignUp } from './SignUp/SignUp';
 
 const App: React.FC = () => {
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/chat" component={Chat} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </main>
       {isVisible && <Loader />}

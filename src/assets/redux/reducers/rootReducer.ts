@@ -1,3 +1,4 @@
+import { profileReducer } from './profileReducer/profileReducer';
 import { usernameReducer } from './usernameReducer/usernameReducer';
 import { messagesReducer } from './messagesReducer/messagesReducer';
 import { loaderReducer } from './loaderReducer/loaderReducer';
@@ -9,6 +10,7 @@ export const rootReducer = combineReducers({
   loader: loaderReducer,
   messages: messagesReducer,
   username: usernameReducer,
+  profile: profileReducer,
 });
 
 export type TApp = ReturnType<typeof rootReducer>;

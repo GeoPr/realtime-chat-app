@@ -1,14 +1,9 @@
 .chat {
   background: #333;
-  padding: 100px 50px 50px;
-
+  padding: 120px 50px 50px;
+  position: relative;
   // .chat__body
   &__body {
-  }
-  // .chat__profile
-  &__profile {
-    display: none;
-    // TODO: PROFILE
   }
   // .chat__messages
   &__messages {
@@ -17,7 +12,7 @@
     flex-direction: column;
     align-items: flex-end;
     overflow-y: scroll;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 270px);
     position: relative;
     scrollbar-color: rgb(255, 60, 93) orange;
     scrollbar-width: auto;
@@ -31,16 +26,27 @@
       border-radius: 50px;
     }
     li {
-      padding: 10px;
-      background: rgb(100, 100, 228);
-      border-radius: 10px;
-      font-size: 20px;
+      display: flex;
+      align-items: center;
       &:not(:last-child) {
         margin: 0px 0px 10px 0px;
       }
       &._active {
-        background: rebeccapurple;
         align-self: flex-start;
+        span {
+          background: rebeccapurple;
+        }
+      }
+      img {
+        max-width: 50px;
+        border-radius: 50%;
+        margin: 0px 20px 0px 0px;
+      }
+      span {
+        padding: 10px;
+        background: rgb(100, 100, 228);
+        border-radius: 10px;
+        font-size: 20px;
       }
     }
   }

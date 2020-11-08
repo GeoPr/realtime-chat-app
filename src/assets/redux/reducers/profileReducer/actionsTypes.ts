@@ -1,0 +1,1 @@
+export const SET_PROFILE_IMAGE = 'SET_PROFILE_IMAGE';

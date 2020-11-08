@@ -21,6 +21,7 @@ export const Chat: React.FC = () => {
   const username = useSelector((state: TApp) => state.username);
   const history = useHistory();
   const chatMessages = useRef<HTMLUListElement>(null!);
+  const profileImage = useSelector((state: TApp) => state.profile);
 
   useEffect(() => {
     if (isAuthed === false) {
@@ -53,12 +54,14 @@ export const Chat: React.FC = () => {
   return (
     <section className="chat">
       <div className="chat__body">
-        <div className="chat__profile">profile</div>
         <ul className="chat__messages" ref={chatMessages}>
           {messages.map(message => {
             return (
               <li key={message.id} className={message.username === username ? '' : '_active'}>
-                {message.username}: {message.title}
+                <img src={profileImage} alt="" />
+                <span>
+                  {message.username}: {message.title}
+                </span>
               </li>
             );
           })}
