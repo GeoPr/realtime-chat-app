@@ -17,7 +17,7 @@ export const Home: React.FC = () => {
             necessitatibus a, qui et quidem ducimus quod?
           </div>
           <Button className="home__button">
-            <Link to="/login">Try it for free now!</Link>
+            <Link to="/signup">Try it for free now!</Link>
           </Button>
         </div>
       </div>
