@@ -53,8 +53,8 @@ export const Chat: React.FC = () => {
 
   const checkUsername = (name: string) => {
     return name === username || name === JSON.parse(localStorage.getItem('username')!)
-      ? ''
-      : '_active';
+      ? true
+      : false;
   };
 
   return (
@@ -63,8 +63,13 @@ export const Chat: React.FC = () => {
         <ul className="chat__messages" ref={chatMessages}>
           {messages.map(message => {
             return (
-              <li key={message.id} className={checkUsername(message.username)}>
-                <img src={profileImage} alt="" />
+              <li
+                key={message.id}
+                className={checkUsername(message.username) === false ? '_active' : ''}>
+                <img
+                  src={checkUsername(message.username) ? profileImage : 'images/profile.png'}
+                  alt=""
+                />
                 <span>
                   {message.username}: {message.title}
                 </span>
