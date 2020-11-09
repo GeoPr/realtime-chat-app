@@ -51,13 +51,19 @@ export const Chat: React.FC = () => {
     reset();
   });
 
+  const checkUsername = (name: string) => {
+    return name === username || name === JSON.parse(localStorage.getItem('username')!)
+      ? ''
+      : '_active';
+  };
+
   return (
     <section className="chat">
       <div className="chat__body">
         <ul className="chat__messages" ref={chatMessages}>
           {messages.map(message => {
             return (
-              <li key={message.id} className={message.username === username ? '' : '_active'}>
+              <li key={message.id} className={checkUsername(message.username)}>
                 <img src={profileImage} alt="" />
                 <span>
                   {message.username}: {message.title}

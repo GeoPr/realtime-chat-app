@@ -18,6 +18,7 @@ export const login = (data: IData): TThunk => {
     try {
       await fire.auth().signInWithEmailAndPassword(data.email, data.password);
       dispatch(setUsername(data.username));
+      localStorage.setItem('username', JSON.stringify(data.username));
 
       dispatch(actions.setUserAuthStatus(true));
 

@@ -6,6 +6,8 @@ import './Header.scss';
 
 export const Header: React.FC = () => {
   const { isAuthed } = useSelector((state: TApp) => state.auth);
+  const profileImage = useSelector((state: TApp) => state.profile);
+  console.log(profileImage);
 
   return (
     <header className="header">
@@ -35,7 +37,10 @@ export const Header: React.FC = () => {
           </ul>
         </nav>
         {isAuthed && (
-          <NavLink className="header__profile" to="/profile">
+          <NavLink
+            className="header__profile"
+            to="/profile"
+            style={{ background: `url(${profileImage}) center center / cover no-repeat` }}>
             Profile
           </NavLink>
         )}
