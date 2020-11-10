@@ -4,16 +4,17 @@ import { Redirect } from 'react-router-dom';
 import { setProfileImage } from '../../redux/reducers/profileReducer/actions';
 import { TApp } from '../../redux/reducers/rootReducer';
 import { setUsername } from '../../redux/reducers/usernameReducer/actions';
+import { withAuthRedirect } from '../HOCS/withAuthRedirect';
 import './Profile.scss';
 
-export const Profile: React.FC = () => {
+const ProfileComponent: React.FC = () => {
   const username = useSelector((state: TApp) => state.username);
   const { isAuthed } = useSelector((state: TApp) => state.auth);
   const dispatch = useDispatch();
   const profileImage = useSelector((state: TApp) => state.profile);
 
   if (isAuthed === false) {
-    alert('u`re authed');
+    alert('u`re not authed');
     return <Redirect to="/login" />;
   }
 
@@ -57,3 +58,5 @@ export const Profile: React.FC = () => {
     </section>
   );
 };
+
+export const Profile = withAuthRedirect(ProfileComponent);

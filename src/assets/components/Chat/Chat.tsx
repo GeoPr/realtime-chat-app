@@ -6,29 +6,22 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import { getMessages } from '../../redux/reducers/messagesReducer/actions';
 import { TApp } from '../../redux/reducers/rootReducer';
-import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Button } from '../Button/Button';
 import { sendMessage } from '../../redux/reducers/messagesReducer/asyncActions';
+import { withAuthRedirect } from '../HOCS/withAuthRedirect';
 
 type TData = { message: string };
 
-export const Chat: React.FC = () => {
+const ChatComponent: React.FC = () => {
   const dispatch = useDispatch();
   const messages = useSelector((state: TApp) => state.messages);
-  const { isAuthed } = useSelector((state: TApp) => state.auth);
   const { register, handleSubmit, errors, reset } = useForm<TData>();
   const username = useSelector((state: TApp) => state.username);
-  const history = useHistory();
   const chatMessages = useRef<HTMLUListElement>(null!);
   const profileImage = useSelector((state: TApp) => state.profile);
 
   useEffect(() => {
-    if (isAuthed === false) {
-      alert('u`re not authed');
-      history.push('/login');
-    }
-
     chatMessages.current.scrollTop = chatMessages.current.scrollHeight;
 
     fire
@@ -91,3 +84,5 @@ export const Chat: React.FC = () => {
     </section>
   );
 };
+
+export const Chat = withAuthRedirect(ChatComponent);
