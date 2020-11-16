@@ -7,7 +7,6 @@ import './Header.scss';
 export const Header: React.FC = () => {
   const { isAuthed } = useSelector((state: TApp) => state.auth);
   const profileImage = useSelector((state: TApp) => state.profile);
-  console.log(profileImage);
 
   return (
     <header className="header">

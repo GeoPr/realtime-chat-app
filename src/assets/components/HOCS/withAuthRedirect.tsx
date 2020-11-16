@@ -7,7 +7,7 @@ export function withAuthRedirect<T>(WrappedComponent: React.ComponentType<T>) {
   const ReturnableComponent: React.FC<T> = props => {
     const { isAuthed } = useSelector((state: TApp) => state.auth);
 
-    if (isAuthed === false) {
+    if (!isAuthed) {
       alert('u`re not authed');
       return <Redirect to="/login" />;
     }
